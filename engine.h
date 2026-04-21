@@ -10,12 +10,14 @@ struct Screen {
   static const int textbox_height = 7;
   static const int textbox_padding = 1;
   static const int border_width = 1;
+
   static const int inner_textbox_height = textbox_height - ((textbox_padding + border_width) * 2);
   static const int inner_textbox_width = width - ((textbox_padding + border_width) * 2);
+  static const int textbox_string_max_length = inner_textbox_width * inner_textbox_height;
+
   static const int inner_width = (width - 2);
   static const int inner_height = (height - textbox_height - 2);
   static const int fullscreen_height = (height - 2);
-  static const int textbox_string_max_length = inner_textbox_width * inner_textbox_height;
 };
 
 class Canvas {
