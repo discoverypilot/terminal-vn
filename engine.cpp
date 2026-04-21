@@ -40,3 +40,12 @@ void Canvas::draw() {
   }
   std::cout << std::flush;
 }
+
+void Canvas::drawText(std::string text) {
+  // end early if text.length > Screen::textbox_string_max_length
+  // ^ i'm assuming the string passed in will be less though, bc this function
+  // will be private after testing, and then it'll be called from within a function,
+  // which will call another function to check beforehand.
+
+  // call draw with a delay until done drawing string
+}
