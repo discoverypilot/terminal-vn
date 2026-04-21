@@ -18,9 +18,9 @@ private:
   std::string canvas[Screen::width][Screen::height];
   void assignBorders();
   void draw();
+  void clear() { std::cout << "\033[H\033[2J"; };
 public:
   Canvas();
-  void clear() { std::cout << "\033[H\033[2J"; };
 };
 
 #endif
