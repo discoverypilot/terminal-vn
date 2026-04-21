@@ -27,6 +27,7 @@ Canvas::Canvas() {
     }
   }
   assignBorders();
+  draw();
 }
 
 void Canvas::draw() {

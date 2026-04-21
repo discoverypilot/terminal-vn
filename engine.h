@@ -17,10 +17,10 @@ class Canvas {
 private:
   std::string canvas[Screen::width][Screen::height];
   void assignBorders();
+  void draw();
 public:
   Canvas();
   void clear() { std::cout << "\033[H\033[2J"; };
-  void draw();
 };
 
 #endif
