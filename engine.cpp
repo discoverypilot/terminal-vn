@@ -1,4 +1,5 @@
 #include "engine.h"
+#include <chrono>
 
 void Canvas::assignBorders() {
   for (int x = 0; x < Screen::width; ++x) {
@@ -21,6 +22,7 @@ void Canvas::assignBorders() {
 }
 
 Canvas::Canvas() {
+  clearStartup();
   for (int y = 0; y < Screen::height; ++y) {
     for (int x = 0; x < Screen::width; ++x) {
       canvas[x][y] = " ";
@@ -42,10 +44,16 @@ void Canvas::draw() {
 }
 
 void Canvas::drawText(std::string text) {
-  // end early if text.length > Screen::textbox_string_max_length
-  // ^ i'm assuming the string passed in will be less though, bc this function
-  // will be private after testing, and then it'll be called from within a function,
-  // which will call another function to check beforehand.
+  int i = 0;
 
-  // call draw with a delay until done drawing string
+  for (int y = Screen::text_start_index_y; y <= Screen::text_end_index_y; ++y) {
+    if (i == text.length()) break; // i know this is abysmal but i'll optimize later... right?
+    for (int x = Screen::text_start_index_x; x <= Screen::text_end_index_x; ++x) {
+      if (i == text.length()) break;
+      canvas[x][y] = text[i];
+      std::this_thread::sleep_for(std::chrono::milliseconds(10));
+      draw();
+      i++;
+    }
+  }
 }
