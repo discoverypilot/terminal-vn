@@ -1,5 +1,4 @@
 #include "engine.h"
-#include <chrono>
 
 void Canvas::assignBorders() {
   for (int x = 0; x < Screen::width; ++x) {
